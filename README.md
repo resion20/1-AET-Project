@@ -2,72 +2,80 @@
 AET is a complete, end-to-end study of a mixed air–water HVAC system for the DENERG building at Politecnico di Torino.
 It covers building loads, psychrometrics, refrigeration cycle sizing, duct & pipe networks, energy/cost estimates, exergy analysis, and thermal sizing of heat exchangers (fan-coil core).
 
-1) Building Model & Loads
+1) Scope & System Choice
 
-Representative floor modeling; 1958 envelope approximations.
+Defined the brief: HVAC for a multi-storey office (fan coils) + lab (ducted air).
 
-Typical U-values (pre-retrofit): walls ~1.41, windows ~3.68, roof ~1.30, basement ~1.15 W/m²K.
+Selected a mixed air–water strategy to match usage and ventilation needs.
 
-Design conditions:
+2) Building Modeling & Assumptions
 
-Winter: indoor 20 °C (offices) / 18 °C (lab), outdoor −8 °C
+Built a representative geometric model (office + lab floors).
 
-Summer: indoor 25 °C (offices) / 24 °C (lab), outdoor 30.5 °C
+Set envelope properties for the 1958 building and window types.
 
-Ventilation: natural for offices (windows), mechanical for labs (e.g., ~0.5 vol/h winter to limit loads).
+3) Design Conditions & Inputs
 
-Solar gains estimated per façade using PV data and window distribution.
+Winter setpoints: 20 °C (offices) / 18 °C (lab); outdoor −8 °C.
 
-Peak loads (baseline):
+Summer setpoints: 25 °C (offices) / 24 °C (lab); outdoor 30.5 °C.
 
-Heating: ~402 kW total
+Ventilation strategy: natural (offices) and mechanical (labs).
 
-Cooling: ~177 kW total (≈ 89 kW offices + 88 kW labs)
+Estimated solar gains per façade (window distribution + PV data).
 
-Envelope upgrade scenario (e.g., 8 cm EPS on walls/roof) reduces loads to ~300 kW heating and 155 kW cooling (≈ −25% / −13%).
+4) Peak Load Calculations
 
-2) Psychrometrics (Air Handling)
+Computed heating and cooling design loads per zone/floor.
 
-Winter (lab AHU): Mix → pre-heater → humidifier → supply ~32 °C (to reduce airflow/Δp).
+Identified critical storeys (lab upper level, top office floor).
 
-Summer (lab AHU): Mix → cooling coil (dehumidify to ~saturation) → reheat → supply ~15 °C.
+5) Psychrometric Design (Lab AHU)
 
-Example duty (critical lab storey): cooler ≈ −69 kW; reheat ≈ +9 kW (summer).
+Winter: mix → pre-heat → humidify → supply air ~32 °C.
 
-3) Refrigeration Cycle Sizing
+Summer: mix → cool/dehumidify to ~saturation → reheat → supply ~15 °C.
 
-Refrigerant: R134a (CoolProp/CoolPack properties), compressor η_is ≈ 0.8.
+Determined coil and reheat duties for critical conditions.
 
-Summer: Q̇L ≈ 177 kW, Ẇc ≈ 39 kW, COP ≈ 4.6, Q̇H ≈ 216 kW (can reuse for reheat).
+6) Refrigeration Cycle Sizing
 
-Winter (heat pump mode): Q̇H ≈ 402 kW, Ẇc ≈ 178 kW, COP ≈ 2.3.
+Sized a vapor-compression (R134a) cycle from building loads.
 
-4) Distribution Networks (Ducts & Pipes)
+Estimated compressor work, condenser/evaporator duties, and COP (summer/winter).
 
-Air (labs): square ducts sized ~1.5 m/s, equivalent diameters (Hübscher), friction (Caleffi), local losses.
+7) Distribution Networks
 
-Two lab floors example: Δp ≈ 111 Pa, fan power ≈ 1.0 kW.
+Air (labs): duct sizing (velocity target, equivalent diameters), pressure losses, fan power.
 
-Water (fan coils, worst loop): Δp totals from friction + fittings + geodetic head.
+Water (offices): pipe sizing, friction/local/geodetic head, pump power.
 
-Example loop: Δp ≈ 3.1×10⁵ Pa, pump power ≈ 0.18 kW.
+8) Energy & Cost Assessment
 
-5) Energy, Cost & Exergy
+Scaled loads to daily energy using normalized hourly demand curves.
 
-Daily energy from normalized hourly demand curves (summer/winter).
+Estimated compressor electricity and monthly costs for summer/winter operation.
 
-Summer compressor ≈ 705 kWh/day, Winter ≈ 3247 kWh/day (baseline).
+9) Exergy Analysis
 
-With 8 cm EPS: Summer ≈ 617 kWh/day, Winter ≈ 2425 kWh/day.
+Defined ambient (“dead”) states for humid air, water, and refrigerant.
 
-Exergy analysis: Dead states set for humid air/water/R134a; compute exergy streams and irreversibilities per component. Major losses concentrate in the cooling coil and compression train—priority areas for improvement.
+Tracked exergy flows and irreversibilities to locate quality losses (coil + compression).
 
-6) Thermal Design (Heat Exchangers)
+Thermal Design of Heat Exchangers
 
-ε–NTU approach, convection (e.g., Zhukauskas correlations).
+Applied ε–NTU with convection correlations to size the fan-coil core.
 
-Fan-coil core:
+Compared finned vs. unfinned configurations; verified summer as sizing driver.
 
-Summer is sizing driver: ~20 tubes with fins (ηₒᵥ ~0.97) vs ~30 without fins to hit duty.
+Improvement Scenario (Envelope Upgrade)
 
-Overall U rises from ~374 → 556 W/m²K with finned design.
+Tested 8 cm EPS on walls/roof.
+
+Recomputed peaks, daily energy, and costs → quantified reductions.
+
+Deliverables
+
+Consolidated calculations, assumptions, and results into the project PDF.
+
+Summaries: peak loads, AHU setpoints, cycle COP, duct/pipe Δp, fan/pump power, energy/cost tables, exergy breakdown, and HX sizing.
